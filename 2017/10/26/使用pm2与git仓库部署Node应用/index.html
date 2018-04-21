@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署  服务器环境初始化接下来">
+<meta name="description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署">
 <meta name="keywords" content="前端,pm2,nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用pm2与git仓库部署Node应用">
 <meta property="og:url" content="http://yoursite.com/2017/10/26/使用pm2与git仓库部署Node应用/index.html">
 <meta property="og:site_name" content="HyruleTeam Blog">
-<meta property="og:description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署  服务器环境初始化接下来">
+<meta property="og:description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://otu91et2v.bkt.clouddn.com/QQ20171026-194846@2x.png">
 <meta property="og:image" content="http://otu91et2v.bkt.clouddn.com/QQ20171026-201810@2x.png">
 <meta property="og:image" content="http://otu91et2v.bkt.clouddn.com/QQ20171026-202051@2x.png">
-<meta property="og:updated_time" content="2018-04-21T10:56:46.108Z">
+<meta property="og:updated_time" content="2018-04-21T11:01:28.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用pm2与git仓库部署Node应用">
-<meta name="twitter:description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署  服务器环境初始化接下来">
+<meta name="twitter:description" content="背景近几日将公司项目开了一个新坑，使用Nodejs进行服务端渲染，为公司团队前后端分离往前推进了一大步，本文就介绍了如何将开发好的Node程序在服务器上完成高逼格自动化部署 技术架构 开发环境：MacOS 10.13 程序：Koa+requirejs 服务器：公司内网服务器 Centos6.8 代码托管：公司内部gitlab 程序端口：3000端口 使用pm2进行托管部署">
 <meta name="twitter:image" content="http://otu91et2v.bkt.clouddn.com/QQ20171026-194846@2x.png">
 
 
@@ -334,6 +334,7 @@
 <li>代码托管：公司内部gitlab</li>
 <li>程序端口：3000端口 使用pm2进行托管部署</li>
 </ul>
+<a id="more"></a>
 <h2 id="服务器环境初始化"><a href="#服务器环境初始化" class="headerlink" title="服务器环境初始化"></a>服务器环境初始化</h2><p>接下来以公司服务器系统Centos6.8为例进行说明：<br>服务器上需要安装以下程序和依赖</p>
 <ul>
 <li>Nodejs (项目中运用了大量的ES6，ES7语法，所以我们安装是7.9以上版本)</li>
