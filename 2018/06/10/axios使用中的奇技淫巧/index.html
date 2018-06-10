@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,webpack," />
+  <meta name="keywords" content="前端,axios," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="记录一下使用webpack上的一些坑">
-<meta name="keywords" content="前端,webpack">
+<meta name="description" content="response拦截器自动刷新token并重新发起请求业务场景：后台api接口返回code:-2 就代表着token不存在或者失效 1234567891011121314151617181920212223242526272829303132// respone拦截器service  .interceptors  .response  .use(response =&amp;gt; &amp;#123;    c">
+<meta name="keywords" content="前端,axios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack踩坑指南">
-<meta property="og:url" content="http://yoursite.com/2018/06/10/Webpack踩坑指南/index.html">
+<meta property="og:title" content="axios使用中的奇技淫巧">
+<meta property="og:url" content="http://yoursite.com/2018/06/10/axios使用中的奇技淫巧/index.html">
 <meta property="og:site_name" content="HyruleTeam Blog">
-<meta property="og:description" content="记录一下使用webpack上的一些坑">
+<meta property="og:description" content="response拦截器自动刷新token并重新发起请求业务场景：后台api接口返回code:-2 就代表着token不存在或者失效 1234567891011121314151617181920212223242526272829303132// respone拦截器service  .interceptors  .response  .use(response =&amp;gt; &amp;#123;    c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T00:26:53.305Z">
+<meta property="og:updated_time" content="2018-06-10T01:36:40.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Webpack踩坑指南">
-<meta name="twitter:description" content="记录一下使用webpack上的一些坑">
+<meta name="twitter:title" content="axios使用中的奇技淫巧">
+<meta name="twitter:description" content="response拦截器自动刷新token并重新发起请求业务场景：后台api接口返回code:-2 就代表着token不存在或者失效 1234567891011121314151617181920212223242526272829303132// respone拦截器service  .interceptors  .response  .use(response =&amp;gt; &amp;#123;    c">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/10/Webpack踩坑指南/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/10/axios使用中的奇技淫巧/"/>
 
 
 
 
 
-  <title>Webpack踩坑指南 | HyruleTeam Blog</title>
+  <title>axios使用中的奇技淫巧 | HyruleTeam Blog</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/Webpack踩坑指南/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/axios使用中的奇技淫巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HyruleTeam">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Webpack踩坑指南</h1>
+          <h1 class="post-title" itemprop="name headline">axios使用中的奇技淫巧</h1>
         
 
         <div class="post-meta">
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T08:26:53+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T09:36:40+08:00">
                 2018-06-10
               </time>
             
@@ -322,17 +322,8 @@
       
 
       
-        <p>记录一下使用<code>webpack</code>上的一些坑<br><a id="more"></a></p>
-<h2 id="webpack-dev-server-导致的-invalid-host-header"><a href="#webpack-dev-server-导致的-invalid-host-header" class="headerlink" title="webpack-dev-server 导致的 invalid host header"></a>webpack-dev-server 导致的 invalid host header</h2><p>解决方法如下：</p>
-<p>在 <code>webpack-dev-server</code> 的配置中添加</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disableHostCheck: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>新版本的webpack应该是在<code>devServer</code>字段下的配置</p>
-<p>将<code>host</code>配置建议改成</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host: <span class="string">'0.0.0.0'</span></span><br></pre></td></tr></table></figure>
-<h2 id="配置webpack的反向代理"><a href="#配置webpack的反向代理" class="headerlink" title="配置webpack的反向代理"></a>配置webpack的反向代理</h2><p>在开发调试模式中经常会遇到前端调试接口报跨域错误，可以这样配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">proxy: &#123;</span><br><span class="line">    <span class="string">'/open/api'</span>: &#123;</span><br><span class="line">        target: <span class="string">"http://www.x.com"</span>,<span class="comment">//你本地前端服务配置的一个域名</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>如果用的是<code>vue-cli</code>生成的项目，直接改<code>config/index.js</code>里面的配置即可</p>
-
+        <h2 id="response拦截器自动刷新token并重新发起请求"><a href="#response拦截器自动刷新token并重新发起请求" class="headerlink" title="response拦截器自动刷新token并重新发起请求"></a>response拦截器自动刷新token并重新发起请求</h2><p>业务场景：后台api接口返回code:-2 就代表着token不存在或者失效</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// respone拦截器</span></span><br><span class="line">service</span><br><span class="line">  .interceptors</span><br><span class="line">  .response</span><br><span class="line">  .use(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = response.data</span><br><span class="line">    <span class="keyword">if</span> (response.data.code === <span class="number">-2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> originalRequest = response.config<span class="comment">//获取请求的config配置</span></span><br><span class="line">      <span class="keyword">const</span> token = sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">      <span class="keyword">if</span> (token &amp;&amp; token !== <span class="string">''</span>) &#123; <span class="comment">//token不存在的时候，会在router before中获取，这里只针对token失效的情况</span></span><br><span class="line">        <span class="keyword">return</span> getToken().then(<span class="keyword">async</span>(data) =&gt; &#123; <span class="comment">//重新获取token</span></span><br><span class="line">          sessionStorage.setItem(<span class="string">'token'</span>, data.data.token)</span><br><span class="line">          originalRequest.params.token = data.data.token</span><br><span class="line">          <span class="comment">//由于Promise对象不支持返回值，这里选用了es新特性 async await 关键字</span></span><br><span class="line">          <span class="keyword">let</span> res = <span class="keyword">await</span> axios(originalRequest)</span><br><span class="line">          <span class="keyword">return</span> res.data</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (res.code !== <span class="number">0</span> &amp;&amp; res.code !== <span class="number">-2</span>) &#123;</span><br><span class="line">      Toast(&#123;<span class="attr">mes</span>: res.msg, <span class="attr">timeout</span>: <span class="number">1500</span>, <span class="attr">icon</span>: <span class="string">'error'</span>&#125;)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">'error'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> response.data</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, error =&gt; &#123;</span><br><span class="line">    Toast(&#123;<span class="attr">mes</span>: error, <span class="attr">timeout</span>: <span class="number">1500</span>, <span class="attr">icon</span>: <span class="string">'error'</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -351,7 +342,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
+            <a href="/tags/axios/" rel="tag"># axios</a>
           
         </div>
       
@@ -364,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/10/Vue 项目中的nginx配置/" rel="next" title="Vue 项目中的nginx配置">
-                <i class="fa fa-chevron-left"></i> Vue 项目中的nginx配置
+              <a href="/2018/06/10/微信小程序rich-text富文本图片自适应处理/" rel="next" title="微信小程序rich-text富文本图片自适应处理">
+                <i class="fa fa-chevron-left"></i> 微信小程序rich-text富文本图片自适应处理
               </a>
             
           </div>
@@ -373,10 +364,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/10/浅谈我在前端自动化工作流中的实践/" rel="prev" title="浅谈我在前端自动化工作流中的实践">
-                浅谈我在前端自动化工作流中的实践 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +495,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server-导致的-invalid-host-header"><span class="nav-number">1.</span> <span class="nav-text">webpack-dev-server 导致的 invalid host header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置webpack的反向代理"><span class="nav-number">2.</span> <span class="nav-text">配置webpack的反向代理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#response拦截器自动刷新token并重新发起请求"><span class="nav-number">1.</span> <span class="nav-text">response拦截器自动刷新token并重新发起请求</span></a></li></ol></div>
             
 
           </div>
