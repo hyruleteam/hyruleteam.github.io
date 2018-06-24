@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/24/Flexbox%20弹性布局拾缀/DD3E48E4EB4367ADC6305F6210B3B220.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/24/Flexbox%20弹性布局拾缀/B54AA3323E3E2ECEDDE40AF08402BB1D.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/24/Flexbox%20弹性布局拾缀/AFD4924275832101C237EA64D71AE5FD.jpg">
-<meta property="og:updated_time" content="2018-06-24T09:37:14.829Z">
+<meta property="og:updated_time" content="2018-06-24T09:40:20.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex 弹性布局拾缀">
 <meta name="twitter:description" content="综述flexbox是一个完整的模块而不是一个单独的属性，它包含了两个部分 父元素flex container，子元素flex items，这两个是属于一个包含关系  如图所示，flexbox有一个主轴main axis,还有一个侧轴cross axis  main axis flex item排列的方向，当然这个方向是取决于flex-direction属性，并不是绝对的水平 main start">
@@ -420,7 +420,7 @@
 <h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>定义一个元素的缩小比例</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>定义了在分配多余空间之前，元素占据的主轴空间（main size）</p>
-<p>.item {<br>  flex-basis: <length> | auto; /<em> default auto </em>/<br>}</length></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例如设置了<code>flex-basis</code>为<code>100px</code>，那么该元素占据主轴空间为<code>100px</code></p>
 <h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>的合体</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
